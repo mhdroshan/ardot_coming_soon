@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2000');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.2) contrast(1.2);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    padding: 4rem 2rem;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    animation: fadeIn 1s ease-out;
+}
+
+.logo-animation {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.geometric-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%) rotate(45deg);
+    animation: rotate 10s linear infinite;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    animation: slideIn 1s ease-out;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: slideIn 1s ease-out 0.2s backwards;
+}
+
+.divider {
+    width: 30px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 2.5rem auto;
+    animation: expandWidth 1.5s ease-out 0.4s backwards;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+    animation: fadeIn 1s ease-out 0.6s backwards;
+}
+
+.contact {
+    margin-top: 4rem;
+    animation: fadeIn 1s ease-out 0.8s backwards;
+}
+
+.contact p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.contact a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contact a:hover::after {
+    transform: scaleX(1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translateY(-50%) rotate(45deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(405deg);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 8px;
+    }
+
+    h2 {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .geometric-shape {
+        width: 30px;
+        height: 30px;
+        left: -45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        letter-spacing: 6px;
+    }
+
+    h2 {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .geometric-shape {
+        display: none;
+    }
+}
